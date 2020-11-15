@@ -3,7 +3,7 @@ var app = express();
 var fs = require("fs");
 
 app.get('/binary', function (req, res) {
-   
+   res.json({name: "Bob"})
 })
 
 app.get('/binary/:amount', function (req, res) {
@@ -107,9 +107,6 @@ app.get('/convert/octal/binary', function (req, res) {
 app.get('/convert/octal/hex', function (req, res) {
    
 })
-
-
-
 
 
 var server = app.listen(8081, function () {
