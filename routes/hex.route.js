@@ -1,36 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-// var UserController = require('../controllers/user.controller')
-
-// router.get('/', UserController.getUsers)
-
+var HexController = require('../controllers/hex.controller')
 
 // GETTING
 
-router.get('/hex', function (req, res) {
-    res.json({name: "hex"})
-})
+router.get('/hex', HexController.getHexNumber)
 
-router.get('/hex/:amount', function (req, res) {
-   
-})
+router.get('/hex/:amount', HexController.getHexNumbers)
 
 // CONVERTING
 
 //converting hex to decimal
-router.get('/hex/convert/decimal', function (req, res) {
-   
-})
-
-//converting hex to binary
-router.get('/hex/convert/binary', function (req, res) {
-   
-})
-
-//converting hex to octal
-router.get('/hex/convert/octal', function (req, res) {
-   
-})
+router.get('/hex/convert/:value', HexController.convertHexTo)
 
 module.exports = router;

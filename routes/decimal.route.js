@@ -1,34 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
-// var UserController = require('../controllers/user.controller')
+var DecimalController = require('../controllers/decimal.controller')
 
-// router.get('/', UserController.getUsers)
 
 //GETTING
-router.get('/decimal', function (req, res) {
-    res.json({name: "decimal"})
-})
+router.get('/decimal', DecimalController.getDecimalNumber)
 
-router.get('/decimal/:amount', function (req, res) {
-   
-})
+router.get('/decimal/:amount', DecimalController.getDecimalNumbers)
 
 //CONVERTING
 
 //converting decimal to binary
-router.get('/decimal/convert/binary', function (req, res) {
-   
-})
+router.get('/decimal/convert/:value', DecimalController.convertDecimalTo)
 
-//converting decimal to binary
-router.get('/decimal/convert/octal', function (req, res) {
-   
-})
-
-//converting decimal to hex
-router.get('/decimal/convert/hex', function (req, res) {
-   
-})
 
 module.exports = router;
