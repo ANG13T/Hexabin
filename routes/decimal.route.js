@@ -6,28 +6,28 @@ var router = express.Router();
 // router.get('/', UserController.getUsers)
 
 //GETTING
-app.get('/decimal', function (req, res) {
-   
+router.get('/decimal', function (req, res) {
+    res.json({name: "decimal"})
 })
 
-app.get('/decimal/:amount', function (req, res) {
+router.get('/decimal/:amount', function (req, res) {
    
 })
 
 //CONVERTING
 
 //converting decimal to binary
-app.get('/decimal/convert/binary', function (req, res) {
+router.get('/decimal/convert/binary', function (req, res) {
    
 })
 
 //converting decimal to binary
-app.get('/decimal/convert/octal', function (req, res) {
+router.get('/decimal/convert/octal', function (req, res) {
    
 })
 
 //converting decimal to hex
-app.get('/decimal/convert/hex', function (req, res) {
+router.get('/decimal/convert/hex', function (req, res) {
    
 })
 

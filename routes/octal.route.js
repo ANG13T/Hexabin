@@ -7,28 +7,28 @@ var router = express.Router();
 
 // GETTING
 
-app.get('/octal', function (req, res) {
-   
+router.get('/octal', function (req, res) {
+    res.json({name: "octal"})
 })
 
-app.get('/octal/:amount', function (req, res) {
+router.get('/octal/:amount', function (req, res) {
    
 })
 
 //CONVERTING
 
 //converting octal to decimal
-app.get('/octal/convert/decimal', function (req, res) {
+router.get('/octal/convert/decimal', function (req, res) {
    
 })
 
 //converting octal to binary
-app.get('/octal/convert/binary', function (req, res) {
+router.get('/octal/convert/binary', function (req, res) {
    
 })
 
 //converting octal to hex
-app.get('/octal/convert/hex', function (req, res) {
+router.get('/octal/convert/hex', function (req, res) {
    
 })
 

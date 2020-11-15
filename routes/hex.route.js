@@ -8,28 +8,28 @@ var router = express.Router();
 
 // GETTING
 
-app.get('/hex', function (req, res) {
-   
+router.get('/hex', function (req, res) {
+    res.json({name: "hex"})
 })
 
-app.get('/hex/:amount', function (req, res) {
+router.get('/hex/:amount', function (req, res) {
    
 })
 
 // CONVERTING
 
 //converting hex to decimal
-app.get('/hex/convert/decimal', function (req, res) {
+router.get('/hex/convert/decimal', function (req, res) {
    
 })
 
 //converting hex to binary
-app.get('/hex/convert/binary', function (req, res) {
+router.get('/hex/convert/binary', function (req, res) {
    
 })
 
 //converting hex to octal
-app.get('/hex/convert/octal', function (req, res) {
+router.get('/hex/convert/octal', function (req, res) {
    
 })
 

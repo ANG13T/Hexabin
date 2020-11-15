@@ -7,28 +7,28 @@ var router = express.Router();
 
 
 // GETTING
-app.get('/binary', function (req, res) {
-    res.json({name: "Bob"})
+router.get('/binary', function (req, res) {
+    res.json({name: "binary"})
  })
  
- app.get('/binary/:amount', function (req, res) {
+ router.get('/binary/:amount', function (req, res) {
     
  })
 
  //CONVERTING
 
 //converting binary to decimal
-app.get('/binary/convert/decimal', function (req, res) {
+router.get('/binary/convert/decimal', function (req, res) {
    
 })
 
 //converting binary to hex
-app.get('/binary/convert/hex', function (req, res) {
+router.get('/binary/convert/hex', function (req, res) {
    
 })
 
 //converting binary to octal
-app.get('/binary/convert/octal', function (req, res) {
+router.get('/binary/convert/octal', function (req, res) {
    
 })
 
