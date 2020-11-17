@@ -1,4 +1,4 @@
-function getBinaryNumber(length){
+exports.getBinaryNumber = function(length){
     let binary = "";
     for(let i = 0; i < length; i++){
         let digit = Math.round(Math.random());

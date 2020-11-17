@@ -7,7 +7,11 @@ var RandomController = require('../controllers/random.controller')
 
 router.get('/random', RandomController.getRandomNumber)
 
-router.get('/random/:base', RandomController.getRandomNumberOfBase)
+router.get('/random/:amount', RandomController.getRandomNumbers)
+
+router.get('/random/base/:base', RandomController.getRandomNumberOfBase)
+
+router.get('/random/base/:base/:amount', RandomController.getRandomNumbersOfBase)
 
 
 module.exports = router;

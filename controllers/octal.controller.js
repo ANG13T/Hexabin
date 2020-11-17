@@ -1,4 +1,4 @@
-function getOctalNumber(length){
+exports.getOctalNumber = function(length){
     let octal = ""
     for(let i = 0; i < length; i++){
       octal += Math.floor((Math.random() * 8))  

@@ -1,4 +1,4 @@
-function getHexNumber(){
+exports.getHexNumber = function(){
     return '#'+Math.floor(16**5 + Math.random()*(16**6-16**5)).toString(16).toUpperCase();
 }
 
@@ -93,3 +93,4 @@ exports.convertHexTo = function(req, res) {
         return;
     }
 };
+

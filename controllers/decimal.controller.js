@@ -1,6 +1,6 @@
-function getDecimalNumber(length){
+exports.getDecimalNumber = function(length){
     let power = Math.pow(10, length);
-    return Math.floor(Math.random() * power);
+    return Math.floor(Math.random() * power).toString();
 }
 
 function isValidDecimal(decimal) {
@@ -146,3 +146,5 @@ exports.convertDecimalTo = function(req, res) {
         return;
     }
 };
+
+
