@@ -1,4 +1,4 @@
-function getHexNumber(length){
+function getHexNumber(){
     return '#'+Math.floor(16**5 + Math.random()*(16**6-16**5)).toString(16).toUpperCase();
 }
 
@@ -27,7 +27,7 @@ function convertHex(hex, conversion){
     }
 
     if(conversion == "decimal"){
-        let digit = parseInt(hex, 16);
+        let digit = parseInt(binary, 2);
         return digit
     }
 }
@@ -57,8 +57,7 @@ exports.getHexNumbers = function(req, res) {
     
     let hexList = []
     for(let i = 0; i < amount; i++){
-        let randomLength = Math.floor(Math.random() * 10) + 1;
-        hexList.push(getHexNumber(randomLength))
+        hexList.push(getHexNumber())
     }
     result.result = hexList;
 
