@@ -5,14 +5,14 @@ var DecimalController = require('../controllers/decimal.controller')
 
 
 //GETTING
-router.get('/decimal', DecimalController.getDecimalNumber)
-
 router.get('/decimal/:amount', DecimalController.getDecimalNumbers)
+
+router.get('/decimal/:length/:amount', DecimalController.getDecimalNumbersByLength)
 
 //CONVERTING
 
 //converting decimal to binary
-router.get('/decimal/convert/:value', DecimalController.convertDecimalTo)
+router.get('/decimal/:decimal/convert/:value', DecimalController.convertDecimalTo)
 
 
 module.exports = router;
