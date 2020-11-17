@@ -12,6 +12,10 @@ app.use(octalRoute);
 app.use(decimalRoute);
 app.use(randomRoute);
 
+app.get('/', (req, res) => {
+   res.sendFile('app/index.html', { root: __dirname });
+})
+
 
 var server = app.listen(8081, function () {
    var host = server.address().address
