@@ -11,6 +11,6 @@ router.get('/binary/:length/:amount', BinaryController.getBinaryNumbersByLength)
 
 //CONVERTING
 
-router.get('/binary/convert/:value', BinaryController.convertBinaryTo)
+router.get('/binary/:binary/convert/:value', BinaryController.convertBinaryTo)
 
 module.exports = router;

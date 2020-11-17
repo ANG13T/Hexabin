@@ -7,21 +7,34 @@ function getBinaryNumber(length){
     return binary;
 }
 
-function convertBinary(binary, conversion){
-    if(conversion == "decimal"){
-
+function isValidBinary(array) {
+    for (var i of array) {
+         if (i !== "0" && i !== "1") return false;
     }
+    return true;
+}
 
+function isValidConversion(conversion){
+    if(conversion == "hex" || conversion == "octal" || conversion == "decimal"){
+        return true;
+    }
+    return false
+}
+
+function convertBinary(binary, conversion){
     if(conversion == "octal"){
-
+        let octal = parseInt(binary, 2).toString(8);
+        return octal;
     }
 
     if(conversion == "hex"){
-
+        let hex = parseInt(binary, 2).toString(16).toUpperCase();
+        return hex;
     }
 
     if(conversion == "decimal"){
-        
+        let digit = parseInt(binary, 2);
+        return digit
     }
 }
 
@@ -107,9 +120,31 @@ exports.getBinaryNumbersByLength = function(req, res) {
 }
 
 //Convert binary to another value
-//value is not valid
 exports.convertBinaryTo = function(req, res) {
-    res.send('NOT IMPLEMENTED: Convert binary to another value');
-};
+    let result = {result: "", error: false}
 
-//route not found
+    if(req.params.binary){
+        //check if binary is valid
+        let binary = req.params.binary.split("")
+        if(isValidBinary(binary)){
+            if(isValidConversion(req.params.value)){
+                result.result = convertBinary(req.params.binary, req.params.value)
+                res.send(result);
+                return;
+            }else{
+                result.error = `Conversion value in path: ${req.params.value} is not valid`
+                res.send(result);
+                return;
+            }
+        }else{
+            result.error = `Binary value in path: ${req.params.binary} is not valid`
+            res.send(result);
+            return;
+        }
+
+    }else{
+        result.error = "No value for binary in path"
+        res.send(result);
+        return;
+    }
+};
