@@ -1,3 +1,21 @@
+function getDecimalNumber(length){
+    let number = ""
+    for(let i = 0; i < length; i++){
+        number += (Math.random() * 10) + 1;
+    }
+    return parseInt(number);
+}
+
+function isValidDecimal(decimal) {
+   return decimal % 1 == 0
+}
+
+function isValidConversion(conversion){
+    if(conversion == "binary" || conversion == "octal" || conversion == "hex"){
+        return true;
+    }
+    return false
+}
 
 //Get multiple decimal numbers
 exports.getDecimalNumbers = function(req, res) {
