@@ -4,9 +4,10 @@ var router = express.Router();
 var BinaryController = require('../controllers/binary.controller')
 
 // GETTING
-router.get('/binary', BinaryController.getBinaryNumber)
  
 router.get('/binary/:amount', BinaryController.getBinaryNumbers)
+
+router.get('/binary/:length/:amount', BinaryController.getBinaryNumbersByLength)
 
 //CONVERTING
 
