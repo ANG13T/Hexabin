@@ -40,23 +40,28 @@ function convertBinary(binary, conversion){
     }
 }
 
-exports.getBinary = function(req, res) {
-    let result = {result: [], error: false}
-    let randomLength = Math.floor(Math.random() * 10) + 1;
-
-    result.result = getBinaryNumber(randomLength)
-    res.send(result)
-}
 
 //Get multiple binary numbers
 exports.getBinaryNumbers = function(req, res) {
     let result = {result: [], error: false}
     let amount;
-    if(req.params.amount){
-        amount = parseInt(req.params.amount)
+    let length;
+
+    if(req.query.length){
+        length = parseInt(req.query.length)
+
+        if(!length){
+            result.error = `Invalid argument for length in path: ${req.query.length}`
+            res.send(result)
+            return;
+        }
+
+    }
+    if(req.query.amount){
+        amount = parseInt(req.query.amount)
 
         if(!amount){
-            result.error = `Invalid argument in path: ${req.params.amount}`
+            result.error = `Invalid argument for amount in path: ${req.query.amount}`
             res.send(result)
             return;
         }
@@ -72,61 +77,14 @@ exports.getBinaryNumbers = function(req, res) {
     
     let binaryList = []
     for(let i = 0; i < amount; i++){
-        let randomLength = Math.floor(Math.random() * 10) + 1;
-        binaryList.push(getBinaryNumber(randomLength))
+        let binaryLength = length ? length : Math.floor(Math.random() * 10) + 1;
+        binaryList.push(getBinaryNumber(binaryLength))
     }
     result.result = binaryList;
 
     res.send(result)
 };
 
-//Get binary numbers by length
-
-exports.getBinaryNumbersByLength = function(req, res) {
-    let result = {result: [], error: false}
-    let amount;
-    let length;
-    if(req.params.amount){
-        amount = parseInt(req.params.amount)
-
-        if(!amount){
-            result.error = `Invalid argument in path: ${req.params.amount}`
-            res.send(result)
-            return;
-        }
-
-        if(amount > 20){
-            result.error = "MAX of 20 items"
-            res.send(result)
-            return;
-        }
-    }else{
-        amount = 1
-    }
-
-    if(req.params.length){
-        length = parseInt(req.params.length)
-
-        if(!length){
-            result.error = `Invalid argument for length in path: ${req.params.length}`
-            res.send(result)
-            return;
-        }
-
-    }else{
-        result.error = "Argument for length of path is undefined"
-        res.send(result)
-        return;
-    }
-    
-    let binaryList = []
-    for(let i = 0; i < amount; i++){
-        binaryList.push(getBinaryNumber(length))
-    }
-    result.result = binaryList;
-
-    res.send(result)
-}
 
 //Convert binary to another value
 exports.convertBinaryTo = function(req, res) {
