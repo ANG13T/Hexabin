@@ -34,23 +34,17 @@ function convertHex(hex, conversion){
     }
 }
 
-exports.getHex = function(req, res) {
-    let result = {result: [], error: false}
-
-    result.result = getHexNumber()
-    res.send(result)
-}
-
 
 //Get multiple HEX numbers
 exports.getHexNumbers = function(req, res) {
     let result = {result: [], error: false}
     let amount;
-    if(req.params.amount){
-        amount = parseInt(req.params.amount)
+
+    if(req.query.amount){
+        amount = parseInt(req.query.amount)
 
         if(!amount){
-            result.error = `Invalid argument in path: ${req.params.amount}`
+            result.error = `Invalid argument in path: ${req.query.amount}`
             res.send(result)
             return;
         }
