@@ -116,12 +116,21 @@ footer{
     background: #20BDFF;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #a5cffe, #20BDFF, #33beff);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #a5cffe, #20BDFF, #338bff); 
-    height: 20%;
+    height: 5rem;
+}
+
+footer > p, a{
+    margin: 0;
+    padding-top: 1.5rem;
+    text-align: left;
+    color: white;
 }
 
 footer > p{
-    margin: 0;
+  padding-left: 2rem;
 }
+
+
 
   
   
