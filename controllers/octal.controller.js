@@ -38,87 +38,46 @@ function isValidConversion(conversion){
     return false
 }
 
-exports.getOctal = function(req, res) {
-    let result = {result: [], error: false}
-    let randomLength = Math.floor(Math.random() * 10) + 1;
-
-    result.result = getOctalNumber(randomLength)
-    res.send(result)
-}
 
 //Get multiple octal numbers
 exports.getOctalNumbers = function(req, res) {
     let result = {result: [], error: false}
     let amount;
-    if(req.params.amount){
-        amount = parseInt(req.params.amount)
-
-        if(!amount){
-            result.error = `Invalid argument in path: ${req.params.amount}`
-            res.send(result)
-            return;
-        }
-
-        if(amount > 20){
-            result.error = "MAX of 20 items"
-            res.send(result)
-            return;
-        }
-    }else{
-        amount = 1
-    }
-    
-    let octalList = []
-    for(let i = 0; i < amount; i++){
-        let randomLength = Math.floor(Math.random() * 10) + 1;
-        octalList.push(getOctalNumber(randomLength))
-    }
-    result.result = octalList;
-
-    res.send(result)
-};
-
-//Get multiple octal numbers
-exports.getOctalNumbersByLength = function(req, res) {
-    let result = {result: [], error: false}
-    let amount;
     let length;
-    if(req.params.amount){
-        amount = parseInt(req.params.amount)
 
-        if(!amount){
-            result.error = `Invalid argument in path: ${req.params.amount}`
-            res.send(result)
-            return;
-        }
-
-        if(amount > 20){
-            result.error = "MAX of 20 items"
-            res.send(result)
-            return;
-        }
-    }else{
-        amount = 1
-    }
-
-    if(req.params.length){
-        length = parseInt(req.params.length)
+    if(req.query.length){
+        length = parseInt(req.query.length)
 
         if(!length){
-            result.error = `Invalid argument for length in path: ${req.params.length}`
+            result.error = `Invalid argument for length in path: ${req.query.length}`
             res.send(result)
             return;
         }
 
+    }
+
+    if(req.query.amount){
+        amount = parseInt(req.query.amount)
+
+        if(!amount){
+            result.error = `Invalid argument in path: ${req.query.amount}`
+            res.send(result)
+            return;
+        }
+
+        if(amount > 20){
+            result.error = "MAX of 20 items"
+            res.send(result)
+            return;
+        }
     }else{
-        result.error = "Argument for length of path is undefined"
-        res.send(result)
-        return;
+        amount = 1
     }
     
     let octalList = []
     for(let i = 0; i < amount; i++){
-        octalList.push(getOctalNumber(length))
+        let octalLength = length ? length : Math.floor(Math.random() * 10) + 1;
+        octalList.push(getOctalNumber(octalLength))
     }
     result.result = octalList;
 

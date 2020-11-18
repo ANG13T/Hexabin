@@ -4,9 +4,7 @@ var router = express.Router();
 var OctalController = require('../controllers/octal.controller')
 
 // GETTING
-router.get('/octal', OctalController.getOctal)
-router.get('/octal/:amount', OctalController.getOctalNumbers)
-router.get('/octal/:length/:amount', OctalController.getOctalNumbersByLength)
+router.get('/octal', OctalController.getOctalNumbers)
 
 //CONVERTING
 
