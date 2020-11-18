@@ -1,4 +1,6 @@
-exports.getHexNumber = function(){
+exports.getHexNumber = getHexNumber;
+
+function getHexNumber(){
     return '#'+Math.floor(16**5 + Math.random()*(16**6-16**5)).toString(16).toUpperCase();
 }
 

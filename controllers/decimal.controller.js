@@ -1,4 +1,6 @@
-exports.getDecimalNumber = function(length){
+exports.getDecimalNumber = getDecimalNumber;
+
+function getDecimalNumber(length){
     let power = Math.pow(10, length);
     return Math.floor(Math.random() * power).toString();
 }
