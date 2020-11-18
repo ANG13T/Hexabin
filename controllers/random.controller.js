@@ -36,7 +36,7 @@ function generateRandomNumber(base, length){
 }
 
 function isValidBase(base){
-    return (base == "hex" || base == "binary" || hex == "decimal" || base == "octal");
+    return (base == "hex" || base == "binary" || base == "decimal" || base == "octal");
 }
 
 //Get a random numbers of any base
@@ -88,9 +88,9 @@ exports.getRandomNumbers = function(req, res) {
 
     let randomList = []
     for(let i = 0; i < amount; i++){
-        let base = base ? base : generateRandomBase();
+        let randomBase = base ? base : generateRandomBase();
         let randomLength = length ? length : Math.floor(Math.random() * 6) + 1;
-        randomList.push(generateRandomNumber(base, randomLength))
+        randomList.push(generateRandomNumber(randomBase, randomLength))
     }
     result.result = randomList;
 
