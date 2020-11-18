@@ -11,9 +11,10 @@ app.use(hexRoute);
 app.use(octalRoute);
 app.use(decimalRoute);
 app.use(randomRoute);
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-   res.sendFile('app/index.html', { root: __dirname });
+   res.sendFile('public/index.html', { root: __dirname });
 })
 
 
