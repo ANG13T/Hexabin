@@ -40,6 +40,13 @@ function convertBinary(binary, conversion){
     }
 }
 
+exports.getBinary = function(req, res) {
+    let result = {result: [], error: false}
+    let randomLength = Math.floor(Math.random() * 10) + 1;
+
+    result.result = getBinaryNumber(randomLength)
+    res.send(result)
+}
 
 //Get multiple binary numbers
 exports.getBinaryNumbers = function(req, res) {

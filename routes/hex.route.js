@@ -5,6 +5,8 @@ var HexController = require('../controllers/hex.controller')
 
 // GETTING
 
+router.get('/hex', HexController.getHex)
+
 router.get('/hex/:amount', HexController.getHexNumbers)
 
 // CONVERTING

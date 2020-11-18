@@ -34,6 +34,13 @@ function convertHex(hex, conversion){
     }
 }
 
+exports.getHex = function(req, res) {
+    let result = {result: [], error: false}
+
+    result.result = getHexNumber()
+    res.send(result)
+}
+
 
 //Get multiple HEX numbers
 exports.getHexNumbers = function(req, res) {

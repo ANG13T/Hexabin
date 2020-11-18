@@ -38,6 +38,14 @@ function isValidConversion(conversion){
     return false
 }
 
+exports.getOctal = function(req, res) {
+    let result = {result: [], error: false}
+    let randomLength = Math.floor(Math.random() * 10) + 1;
+
+    result.result = getOctalNumber(randomLength)
+    res.send(result)
+}
+
 //Get multiple octal numbers
 exports.getOctalNumbers = function(req, res) {
     let result = {result: [], error: false}

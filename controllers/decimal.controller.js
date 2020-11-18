@@ -39,6 +39,14 @@ function convertDecimal(decimal, value){
     }
 }
 
+exports.getDecimal = function(req, res) {
+    let result = {result: [], error: false}
+    let randomLength = Math.floor(Math.random() * 10) + 1;
+
+    result.result = getDecimalNumber(randomLength)
+    res.send(result)
+}
+
 //Get multiple decimal numbers
 exports.getDecimalNumbers = function(req, res) {
     let result = {result: [], error: false}

@@ -5,6 +5,8 @@ var DecimalController = require('../controllers/decimal.controller')
 
 
 //GETTING
+router.get('/decimal', DecimalController.getDecimal)
+
 router.get('/decimal/:amount', DecimalController.getDecimalNumbers)
 
 router.get('/decimal/:length/:amount', DecimalController.getDecimalNumbersByLength)
