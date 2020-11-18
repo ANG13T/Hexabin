@@ -1,6 +1,6 @@
 header {
     position: relative;
-    height: 500px;
+    height: 550px;
     background: #5433FF;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #a5cffe, #20BDFF, #5433FF);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #a5cffe, #20BDFF, #5433FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -10,6 +10,17 @@ header {
     padding: 100px 0;
     font: 44px "Arial";
     text-align: center;
+  }
+
+  #laptopImage{
+      width: 20rem;
+      height: 20rem;
+  }
+
+  .main{
+      display: flex;
+      margin-left: 20%;
+      padding-top: 5%;
   }
 
   p{
@@ -54,7 +65,7 @@ header {
 }
 
 .skill-card{
-    height: 32rem;
+    height: 20rem;
     width: 20rem;
 }
 
@@ -63,6 +74,15 @@ header {
     margin-bottom: 1.5rem;
     text-align: center;
     font-size: 1.5rem;
+}
+
+footer{
+    background-color: #20BDFF;
+    height: 20%;
+}
+
+footer > p{
+    margin: 0;
 }
 
   
