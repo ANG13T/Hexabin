@@ -39,88 +39,47 @@ function convertDecimal(decimal, value){
     }
 }
 
-exports.getDecimal = function(req, res) {
-    let result = {result: [], error: false}
-    let randomLength = Math.floor(Math.random() * 10) + 1;
-
-    result.result = getDecimalNumber(randomLength)
-    res.send(result)
-}
 
 //Get multiple decimal numbers
 exports.getDecimalNumbers = function(req, res) {
     let result = {result: [], error: false}
     let amount;
-    if(req.params.amount){
-        amount = parseInt(req.params.amount)
-
-        if(!amount){
-            result.error = `Invalid argument in path: ${req.params.amount}`
-            res.send(result)
-            return;
-        }
-
-        if(amount > 20){
-            result.error = "MAX of 20 items"
-            res.send(result)
-            return;
-        }
-
-    }else{
-        amount = 1
-    }
-    
-    let decimalList = []
-    for(let i = 0; i < amount; i++){
-        let randomLength = Math.floor(Math.random() * 10) + 1;
-        decimalList.push(getDecimalNumber(randomLength))
-    }
-    result.result = decimalList;
-
-    res.send(result)
-};
-
-//Get decimal numbers by length
-exports.getDecimalNumbersByLength = function(req, res) {
-    let result = {result: [], error: false}
-    let amount;
     let length;
-    if(req.params.amount){
-        amount = parseInt(req.params.amount)
 
-        if(!amount){
-            result.error = `Invalid argument in path: ${req.params.amount}`
-            res.send(result)
-            return;
-        }
-
-        if(amount > 20){
-            result.error = "MAX of 20 items"
-            res.send(result)
-            return;
-        }
-    }else{
-        amount = 1
-    }
-
-    if(req.params.length){
-        length = parseInt(req.params.length)
+    if(req.query.length){
+        length = parseInt(req.query.length)
 
         if(!length){
-            result.error = `Invalid argument for length in path: ${req.params.length}`
+            result.error = `Invalid argument for length in path: ${req.query.length}`
+            res.send(result)
+            return;
+        }
+
+    }
+
+    if(req.query.amount){
+        amount = parseInt(req.query.amount)
+
+        if(!amount){
+            result.error = `Invalid argument for amount in path: ${req.query.amount}`
+            res.send(result)
+            return;
+        }
+
+        if(amount > 20){
+            result.error = "MAX of 20 items"
             res.send(result)
             return;
         }
 
     }else{
-        result.error = "Argument for length of path is undefined"
-        res.send(result)
-        return;
+        amount = 1
     }
     
     let decimalList = []
     for(let i = 0; i < amount; i++){
-        decimalList.push(getDecimalNumber(length))
+        let decimalLength = length ? length : Math.floor(Math.random() * 10) + 1;
+        decimalList.push(getDecimalNumber(decimalLength))
     }
     result.result = decimalList;
 
