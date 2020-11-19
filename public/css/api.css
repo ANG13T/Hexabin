@@ -131,6 +131,7 @@
   .result{
     background-color: black;
     width: 100%;
+    resize: none;
     color:white;
     margin:auto;
   }
@@ -149,4 +150,12 @@
 
   textarea{
     padding: 1rem;
+  }
+
+  .nav-item{
+    cursor: pointer;
+  }
+
+  #convert-form{
+    display: none;
   }

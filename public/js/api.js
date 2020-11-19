@@ -13,6 +13,13 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
+
+let retrieveValue = document.getElementById('retrieve-value');
+let retrieveForm = document.getElementById('retrieve-form');
+
+let convertValue = document.getElementById('convert-value');
+let convertForm = document.getElementById('convert-form');
+
 let sendRequestBtn = document.getElementById('send-request');
 let resetFormBtn = document.getElementById('reset-form');
 let codeValue = document.getElementById('code-value');
@@ -24,6 +31,11 @@ let urlValue;
 
 let result = {format: "Binary", amount: 1, length: ""};
 
+document.addEventListener("load", function(){
+  retrieveForm.style.display = "block";
+  convertForm.style.display = "none"
+});
+
 resetFormBtn.addEventListener('click', function(){
   amount.value = "1";
   length.value = "";
@@ -33,6 +45,21 @@ resetFormBtn.addEventListener('click', function(){
   result = {format: "Binary", amount: 1, length: ""};
   updateURL()
 })
+
+function validData(){
+  let amountVal = parseInt(amount.value);
+  let lengthVal = parseInt(length.value);
+
+  if(!amountVal){
+    return false;
+  }
+
+  if(!lengthVal){
+    return (amountVal > 0 && amountVal < 21);
+  }else{
+    return (amountVal > 0 && amountVal < 21) && (lengthVal > 0);
+  }
+}
 
 function updateURL(){
   urlValue = "http://localhost:8081/api/"
@@ -53,8 +80,11 @@ function updateURL(){
 }
 
 sendRequestBtn.addEventListener('click', function(){
+  if(!validData()){
+    alert("Invalid Parameters.")
+    return;
+  }
   updateURL()
-  console.log(urlValue)
   fetch(urlValue)
   .then(res => res.json())
   .then((out) => {
@@ -91,5 +121,28 @@ length.addEventListener('change', function(){
   updateURL();
 })
 
+retrieveValue.addEventListener('click', function(){
+  if (retrieveForm.style.display === "none") {
+    retrieveForm.style.display = "block";
+    convertForm.style.display = "none";
+    retrieveValue.classList.add("active")
+    convertValue.classList.remove("active")
+  } else {
+    retrieveForm.style.display = "none";
+    convertForm.style.display = "block";
+  }
+})
+
+convertValue.addEventListener('click', function(){
+  if (convertForm.style.display === "none") {
+    convertForm.style.display = "block";
+    retrieveForm.style.display = "none";
+    convertValue.classList.add("active")
+    retrieveValue.classList.remove("active")
+  } else {
+    convertForm.style.display = "none";
+    retrieveForm.style.display = "block";
+  }
+})
 
 
