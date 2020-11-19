@@ -12,6 +12,26 @@
     color: rgb(168, 28, 28);
 }
 
+.green{
+    color: green;
+}
+
+.blue{
+    color: rgb(90, 190, 223);
+}
+
+.darkblue{
+    color: rgb(75, 64, 221);
+}
+
+.tan{
+    color: rgb(190, 178, 125);
+}
+
+.gray{
+    color: rgb(116, 112, 112);
+}
+
 .code-section{
     width: 80%;
     margin: auto;

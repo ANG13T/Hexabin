@@ -33,18 +33,16 @@
 
     <section>
         <h1 class="content">
-            <i class="fas fa-gem logo red"></i>
-            <span>Getting Started with Ruby</span>
         </h1>
 
         <pre class="code-section">
             <h3 class="subtitle">Get a Binary Value</h3>
             <code>
-                require ‘net/http’ 
-                require ‘uri’
+  require ‘net/http’ 
+  require ‘uri’
 
-                args = { :stat => stat_name, :email => account_email, :count => count } 
-                resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary"), args)
+  args = { :stat => stat_name, :email => account_email, :count => count } 
+  resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary"), args)
             </code>
         </pre>
 
@@ -52,11 +50,11 @@
         <pre class="code-section">
             <h3 class="subtitle">Convert a Binary Value to Decimal</h3>
             <code>
-                require ‘net/http’ 
-                require ‘uri’
+  require ‘net/http’ 
+  require ‘uri’
 
-                args = { :stat => stat_name, :email => account_email, :count => count } 
-                resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary/1010/convert/decimal"), args)
+  args = { :stat => stat_name, :email => account_email, :count => count } 
+  resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary/1010/convert/decimal"), args)
             </code>
         </pre>
     </section>
