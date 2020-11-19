@@ -1,3 +1,3 @@
 $('.card').click(function(){
-    alert("hello");
+    window.location.href=`${window.location.href}/${this.id}`;
 })
