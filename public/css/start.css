@@ -1,11 +1,57 @@
+body{
+    background-color: rgb(241, 239, 239);
+}
+
 .cardGroup{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
+.red{
+    color: rgb(168, 28, 28);
+}
+
+.green{
+    color: green;
+}
+
+.blue{
+    color: rgb(90, 190, 223);
+}
+
+.darkblue{
+    color: rgb(75, 64, 221);
+}
+
+.tan{
+    color: rgb(190, 178, 125);
+}
+
+.gray{
+    color: rgb(116, 112, 112);
+}
+
 .card{
-    width: 23%;
-    margin: 1rem;
-    padding: 1rem;
+    width: 20%;
+    text-align: center;
+    border-radius: 1rem;
+    margin: 2.5rem;
+    height: 23%;
+    padding: 1.4rem;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(184, 180, 183, 0.651), 0 0 6px rgba(184, 180, 183, 0.651);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+.card:hover{
+    transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(184, 180, 183, 0.651), 0 4px 8px rgba(184, 180, 183, 0.651);
+}
+
+.logo{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
 }
