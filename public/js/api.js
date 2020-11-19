@@ -37,6 +37,7 @@ let convertTextArea = document.getElementById('resultTextArea2');
 let fromValue = document.getElementById('from-value');
 let fromCodeValue = document.getElementById('from-code-value');
 let toValue = document.getElementById('to-code-value');
+let convertURLValue;
 
 
 let result = {format: "Binary", amount: 1, length: ""};
@@ -75,7 +76,6 @@ function validData(){
 function updateURL(){
   urlValue = "http://localhost:8081/api/"
   urlValue += `${(result.format).toLowerCase()}`;
-  console.log(result.format)
   if(result.amount > 1){
     urlValue += `?amount=${result.amount}`;
     
@@ -147,9 +147,9 @@ retrieveValue.addEventListener('click', function(){
 // Convert form
 
 function updateConvertURL(){
-  urlValue = "http://localhost:8081/api/"
-  urlValue += `${(convertResult.from).toLowerCase()}/${(convertResult.fromValue)}/convert/${(convertResult.to).toLowerCase()}`;
-  convertURL.innerText = "URL: " + urlValue
+  convertURLValue = "http://localhost:8081/api/"
+  convertURLValue += `${(convertResult.from).toLowerCase()}/${(convertResult.fromValue)}/convert/${(convertResult.to).toLowerCase()}`;
+  convertURL.innerText = "URL: " + convertURLValue
 }
 
 // code validation
@@ -182,18 +182,50 @@ function isValidOctal(octal) {
 }
 
 function validateConvertFields(){
+  let returnValue = true;
   let fromCode = convertResult.from.toLowerCase();
   let fromValue = convertResult.fromValue;
+  let to = convertResult.to.toLowerCase();
+
+  if(fromCode == to){
+    toValue.classList.add("warning")
+    returnValue = false;
+  }else{
+    toValue.classList.remove("warning")
+  }
+
 
   if(fromCode == "binary"){
-    isValidBinary(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+    if(isValidBinary(fromValue)){
+      fromCodeValue.classList.remove("warning");
+    }else{
+      fromCodeValue.classList.add("warning"); 
+      returnValue = false;
+    }
   }else if(fromCode == "hex"){
-    isValidHex(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+    if(isValidHex(fromValue)){
+      fromCodeValue.classList.remove("warning")
+    }else{
+      fromCodeValue.classList.add("warning"); 
+      returnValue = false;
+    }
   }else if(fromCode == "decimal"){
-    isValidDecimal(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+    if(isValidDecimal(fromValue)){
+      fromCodeValue.classList.remove("warning")
+    }else{
+      fromCodeValue.classList.add("warning"); 
+      returnValue = false;
+    }
   }else{ //octal
-    isValidOctal(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+    if(isValidOctal(fromValue)){
+      fromCodeValue.classList.remove("warning")
+    }else{
+      fromCodeValue.classList.add("warning"); 
+      returnValue = false;
+    } 
   }
+
+  return returnValue;
 }
 
 convertValue.addEventListener('click', function(){
@@ -222,16 +254,32 @@ fromCodeValue.addEventListener('change', function(){
 
 toValue.addEventListener('change', function(){
   convertResult.to = toValue.value
+  validateConvertFields();
   updateConvertURL();
 })
 
 
 convertSendRequestBtn.addEventListener('click', function(){
-
+  if(!validateConvertFields()){
+    alert("Invalid Parameters")
+    return;
+  }
+  updateConvertURL();
+  fetch(convertURLValue)
+  .then(res => res.json())
+  .then((out) => {
+    let textedJSON = JSON.stringify(out);
+    convertTextArea.innerText = textedJSON;
+  })
+  .catch(err => { throw err });
 })
 
 
 convertResetFormBtn.addEventListener('click', function(){
-  
+  convertResult = {from: "Binary", fromValue: "1010", to: "Decimal"}
+  fromValue.value = convertResult.from;
+  fromCodeValue.value = convertResult.fromValue;
+  toValue.value = convertResult.to;
+  updateConvertURL();
 })
 
