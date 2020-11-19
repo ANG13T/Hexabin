@@ -97,6 +97,7 @@
     overflow-y:scroll;
   }
 
+
   .subtitle{
     margin-bottom: 2rem;
   }
@@ -132,6 +133,14 @@
     width: 100%;
     color:white;
     margin:auto;
+  }
+
+  .warning{
+    border: 1px solid red;
+  }
+
+  #send-request{
+    color:white;
   }
 
   .result-text{
