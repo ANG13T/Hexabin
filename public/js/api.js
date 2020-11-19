@@ -29,7 +29,18 @@ let length = document.getElementById('length-value');
 let textArea = document.getElementById('resultTextArea');
 let urlValue;
 
+
+let convertSendRequestBtn = document.getElementById('send-request-2');
+let convertResetFormBtn = document.getElementById('reset-form-2');
+let convertURL = document.getElementById('convert-url');
+let convertTextArea = document.getElementById('resultTextArea2');
+let fromValue = document.getElementById('from-value');
+let fromCodeValue = document.getElementById('from-code-value');
+let toValue = document.getElementById('to-code-value');
+
+
 let result = {format: "Binary", amount: 1, length: ""};
+let convertResult = {from: "Binary", fromValue: "1010", to: "Decimal"}
 
 document.addEventListener("load", function(){
   retrieveForm.style.display = "block";
@@ -133,6 +144,58 @@ retrieveValue.addEventListener('click', function(){
   }
 })
 
+// Convert form
+
+function updateConvertURL(){
+  urlValue = "http://localhost:8081/api/"
+  urlValue += `${(convertResult.from).toLowerCase()}/${(convertResult.fromValue)}/convert/${(convertResult.to).toLowerCase()}`;
+  convertURL.innerText = "URL: " + urlValue
+}
+
+// code validation
+
+function isValidBinary(array) {
+  for (var i of array) {
+       if (i !== "0" && i !== "1") return false;
+  }
+  return true;
+}
+
+function isValidDecimal(decimal) {
+  let number;
+  if(parseInt(decimal)){
+      number = parseInt(decimal);
+  }else{
+      return false
+  }
+ return decimal % 1 == 0
+}
+
+function isValidHex(hex) {
+  var a = parseInt(hex,16);
+  return (a.toString(16) === hex)
+}
+
+function isValidOctal(octal) {
+  var a = parseInt(octal,8);
+  return (a.toString(8) === octal)
+}
+
+function validateConvertFields(){
+  let fromCode = convertResult.from.toLowerCase();
+  let fromValue = convertResult.fromValue;
+
+  if(fromCode == "binary"){
+    isValidBinary(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+  }else if(fromCode == "hex"){
+    isValidHex(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+  }else if(fromCode == "decimal"){
+    isValidDecimal(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+  }else{ //octal
+    isValidOctal(fromValue) ? fromCodeValue.classList.add("warning") : fromCodeValue.classList.remove("warning");
+  }
+}
+
 convertValue.addEventListener('click', function(){
   if (convertForm.style.display === "none") {
     convertForm.style.display = "block";
@@ -145,4 +208,30 @@ convertValue.addEventListener('click', function(){
   }
 })
 
+
+fromValue.addEventListener('change', function(){
+  convertResult.from = fromValue.value
+  validateConvertFields();
+  updateConvertURL();
+})
+
+fromCodeValue.addEventListener('change', function(){
+  convertResult.fromValue = fromCodeValue.value
+  validateConvertFields()
+})
+
+toValue.addEventListener('change', function(){
+  convertResult.to = toValue.value
+  updateConvertURL();
+})
+
+
+convertSendRequestBtn.addEventListener('click', function(){
+
+})
+
+
+convertResetFormBtn.addEventListener('click', function(){
+  
+})
 

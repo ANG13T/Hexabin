@@ -1,4 +1,5 @@
 exports.getBinaryNumber = getBinaryNumber;
+exports.isValidBinary = isValidBinary;
 
 function getBinaryNumber(length){
     let binary = "";

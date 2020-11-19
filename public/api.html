@@ -157,38 +157,36 @@
                 <form id="convert-form">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Convert Format FROM</label>
-                      <select class="form-control" id="code-value">
+                      <select class="form-control" id="from-value">
                         <option>Binary</option>
                         <option>Octal</option>
                         <option>Hex</option>
                         <option>Decimal</option>
-                        <option>Random</option>
                       </select>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Value</label>
-                        <input type="text" class="form-control" id="code-value" placeholder="Value of FROM" value="">
+                        <input type="text" class="form-control" id="from-code-value" placeholder="Value of FROM" value="1010">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Convert Format TO</label>
-                        <select class="form-control" id="code-value">
+                        <select class="form-control" id="to-code-value">
+                          <option>Decimal</option>
                           <option>Binary</option>
                           <option>Octal</option>
                           <option>Hex</option>
-                          <option>Decimal</option>
-                          <option>Random</option>
                         </select>
                       </div>
 
-                    <h3 class="url" id="url">URL: http://localhost:8081/api/binary</h3>
+                    <h3 class="url" id="convert-url">URL: http://localhost:8081/api/binary/1010/convert/decimal</h3>
 
-                    <a type="button" class="btn btn-primary" id="send-request">Send Request</a>
-                    <a type="button" class="btn reset-button" id="reset-form">Reset Form</a>
+                    <a type="button" class="btn btn-primary" id="send-request-2">Send Request</a>
+                    <a type="button" class="btn reset-button" id="reset-form-2">Reset Form</a>
 
                     <h4 class="result-text">Result</h4>
-                    <textarea name="" id="resultTextArea" class="result" readonly>(Set parameters and click "Send Request" above)</textarea>
+                    <textarea name="" id="resultTextArea2" class="result" readonly>(Set parameters and click "Send Request" above)</textarea>
                    
                 </form>
             </div>
