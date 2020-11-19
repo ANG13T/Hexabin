@@ -17,6 +17,10 @@ app.get('/api', (req, res) => {
    res.sendFile('public/api.html', { root: __dirname });
 })
 
+app.get('/start', (req, res) => {
+   res.sendFile('public/start.html', { root: __dirname });
+})
+
 
 var server = app.listen(8081, function () {
    var host = server.address().address
