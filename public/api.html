@@ -23,28 +23,29 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="#">Get Started</a>
-            <a class="nav-item nav-link" href="#">API Reference</a>
+            <a class="nav-item nav-link active" href="#">API Reference</a>
           </div>
     </nav>
 
+    <div class="page">
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3 class="sidebar-title">API Reference</h3>
             </div>
-    
+
             <ul class="list-unstyled components">
 
-               <button class="accordion">Binary</button>
+            <button class="accordion">Binary</button>
                 <div class="panel">
                     <ul class="panel-list">
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Get a binary value
+                        Get a binary value
                         </li>
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Convert a binary value
+                        Convert a binary value
                         </li>
                     </ul>
                 </div>
@@ -54,11 +55,11 @@
                     <ul class="panel-list">
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Get a octal value
+                        Get a octal value
                         </li>
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Convert a octal value
+                        Convert a octal value
                         </li>
                     </ul>
                 </div>
@@ -68,11 +69,11 @@
                     <ul class="panel-list">
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Get a decimal value
+                        Get a decimal value
                         </li>
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Convert a decimal value
+                        Convert a decimal value
                         </li>
                     </ul>
                 </div>
@@ -82,11 +83,11 @@
                     <ul class="panel-list">
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Get a hexadecimal value
+                        Get a hexadecimal value
                         </li>
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Convert a hexadecimal value
+                        Convert a hexadecimal value
                         </li>
                     </ul>
                 </div>
@@ -96,13 +97,65 @@
                     <ul class="panel-list">
                         <li>
                         <span class="badge badge-success">GET</span>
-                          Get a random value
+                        Get a random value
                         </li>
                     </ul>
                 </div>
             </ul>
-    
+
         </nav>
+
+        <!-- Main Content -->
+        <section class="main">
+            <div class="content">
+                <h3 class="subtitle">Information</h3>
+                <p>Hexabin is a RESTful API that converts and serves well formatted binary, hexadecimal, octal, and decimal values.
+                    It can be used without any API token, membership, registration or payment.
+                    Usage and implementation of the API is very simple.
+                    It supports multiple filters to get the specific values you need.
+                </p>
+                <h3 class="subtitle">Try It Out</h3>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active">Retrieve a Value</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link">Convert a Value</a>
+                    </li>
+                </ul>
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Select Format</label>
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Binary</option>
+                        <option>Octal</option>
+                        <option>Hexadecimal</option>
+                        <option>Decimal</option>
+                        <option>Random</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Amount</label>
+                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Amount of Values" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Preferred Length</label>
+                        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Length of each value" value="2">
+                    </div>
+
+                    <h3 class="url">URL: www.google.com</h3>
+
+                    <button class="btn btn-primary">Send Request</button>
+                    <button class="btn reset-button">Reset Form</button>
+
+                    <h4 class="result-text">Result</h4>
+                    <textarea name="" id="myTextarea" class="result">(Set parameters and click "Send Request" above)</textarea>
+                   
+                  </form>
+            </div>
+            
+        </section>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

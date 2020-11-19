@@ -4,6 +4,10 @@
     background: linear-gradient(to left, #a5cffe, #20BDFF, #338bff); 
 }
 
+.page{
+  display: flex;
+}
+
 
 .title{
     color: white;
@@ -45,7 +49,7 @@
     transition: 0.4s;
   }
   
-  .active, .accordion:hover {
+  .activeBar, .accordion:hover {
     background-color: #ccc;
   }
   
@@ -57,7 +61,7 @@
     margin-left: 5px;
   }
   
-  .active:after {
+  .activeBar:after {
     content: "\2212";
   }
   
@@ -83,4 +87,57 @@
 
   .panel-list li span{
     margin-right: .5rem;
+  }
+
+  .main{
+    padding-top: 2rem;
+    text-align: center;
+    width: 80%;
+    height: 90vh;
+    overflow-y:scroll;
+  }
+
+  .subtitle{
+    margin-bottom: 2rem;
+  }
+
+  form{
+    text-align: left;
+    overflow-y:auto;
+    border: 2px solid rgb(61, 61, 223);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .content{
+    margin: auto;
+    width: 80%;
+  }
+
+  .content p{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    color: gray;
+  }
+
+  .url{
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .result{
+    background-color: black;
+    width: 100%;
+    color:white;
+    margin:auto;
+  }
+
+  .result-text{
+    margin-top: 2rem;
+  }
+
+  textarea{
+    padding: 1rem;
   }
