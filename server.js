@@ -21,6 +21,16 @@ app.get('/start', (req, res) => {
    res.sendFile('public/start.html', { root: __dirname });
 })
 
+app.get('/start/:language', (req, res) => {
+   let languages = ["ruby", "javascript", "objectivec", "java", "php", "python", "curl", "golang", "perl"]
+   if(languages.includes(req.params.language)){
+      res.sendFile('public/language.html', { root: __dirname })
+   }else{
+      res.sendFile('public/error.html', { root: __dirname })
+   }
+   
+})
+
 
 var server = app.listen(8081, function () {
    var host = server.address().address

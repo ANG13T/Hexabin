@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
+    <link rel="stylesheet" href="/css/api.css">
+    <link rel="stylesheet" href="/css/language.css">
+
+    <title>Hexabin API - Get Started</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light mainNav">
+        <a class="navbar-brand" href="/">
+          <img src="/images/HexbinLogo.png" width="25" height="30" class="d-inline-block align-top" alt="logo">
+          <span class="title">HEXABIN</span>
+        </a>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/start">Get Started</a>
+            <a class="nav-item nav-link" href="/api">API Reference</a>
+          </div>
+    </nav>
+
+    <section>
+        <h1 class="content">
+            <i class="fas fa-gem logo red"></i>
+            <span>Getting Started with Ruby</span>
+        </h1>
+
+        <pre class="code-section">
+            <h3 class="subtitle">Get a Binary Value</h3>
+            <code>
+                require ‘net/http’ 
+                require ‘uri’
+
+                args = { :stat => stat_name, :email => account_email, :count => count } 
+                resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary"), args)
+            </code>
+        </pre>
+
+
+        <pre class="code-section">
+            <h3 class="subtitle">Convert a Binary Value to Decimal</h3>
+            <code>
+                require ‘net/http’ 
+                require ‘uri’
+
+                args = { :stat => stat_name, :email => account_email, :count => count } 
+                resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary/1010/convert/decimal"), args)
+            </code>
+        </pre>
+    </section>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+    <script charset="UTF-8"
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/languages/go.min.js"></script>
+ <script src="/js/language.js"></script>
+  </body>
+</html>
