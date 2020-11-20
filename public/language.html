@@ -37,25 +37,13 @@
 
         <pre class="code-section">
             <h3 class="subtitle">Get a Binary Value</h3>
-            <code>
-  require ‘net/http’ 
-  require ‘uri’
-
-  args = { :stat => stat_name, :email => account_email, :count => count } 
-  resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary"), args)
-            </code>
+            <code id="getCode"></code>
         </pre>
 
 
         <pre class="code-section">
             <h3 class="subtitle">Convert a Binary Value to Decimal</h3>
-            <code>
-  require ‘net/http’ 
-  require ‘uri’
-
-  args = { :stat => stat_name, :email => account_email, :count => count } 
-  resp = Net::HTTP.post_form(URI.parse("http://localhost:8081/api/binary/1010/convert/decimal"), args)
-            </code>
+            <code id="convertCode"></code>
         </pre>
     </section>
     
