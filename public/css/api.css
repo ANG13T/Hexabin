@@ -83,6 +83,11 @@
     font-size: 15px;
     transition: 0.4s;
   }
+
+  .accordion:focus {
+    outline: none;
+    box-shadow: none;
+  }
   
   .activeBar, .accordion:hover {
     background-color: #ccc;

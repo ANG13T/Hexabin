@@ -67,6 +67,15 @@ $('.ref').click(function(){
   showDetails(this.id);
 })
 
+$('#copyButton').click(function(){
+  var copyText = document.getElementById("urlInput")
+
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+
+  document.execCommand("copy");
+})
+
 
 function showDetails(id){
   $('#query-params').children("div").remove()
