@@ -24,14 +24,19 @@ Path Parameters-
 Query Parameters-
 
 `?length`: length of value
+
 `?amount`: amount of values
 
 Example Requests-
 
 `GET /api/binary`
+
 `GET /api/decimal`
+
 `GET /api/random?amount=2`
+
 `GET /api/hex?amount=4`
+
 `GET /api/octal?amount=4&length=3`
 
 Example Responses-
@@ -54,7 +59,9 @@ Routes | Description
 Path Parameters-
 
 `from`: value to convert from (binary, decimal, octal, or hex)
+
 `fromValue`: the value of the format to convert from
+
 `to`: value to convert to (binary, decimal, octal, or hex)
 
 Example Requests-
