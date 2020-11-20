@@ -71,6 +71,11 @@
     padding-bottom: 2rem;
 }
 
+.logo{
+  width: 2rem;
+  height: 2rem;
+}
+
 .accordion {
     background-color: #eee;
     color: #444;
