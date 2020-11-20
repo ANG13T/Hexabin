@@ -1,5 +1,5 @@
 # Hexabin
-<img src="https://github.com/angelina-tsuboi/Hexabin/blob/master/public/images/HexbinLogo.png" alt="Logo" height="48" width="48">
+<img src="https://github.com/angelina-tsuboi/Hexabin/blob/master/public/images/HexbinLogo.png" alt="Logo" height="60" width="48">
 
 A Node.js/Express.js REST API to GET and CONVERT binary, hexadecimal, octal, and decimal formats.
 
@@ -97,10 +97,10 @@ Example Responses-
 Please [create a new issue](https://github.com/angelina-tsuboi/Hexabin/issues/new) for support and issues.
 
 ## Contributing
-Please read the [CONTRIBUTING]() for details on contributing to the Hexabin API.
+Please read the [CONTRIBUTING](https://github.com/angelina-tsuboi/Hexabin/blob/master/CONTRIBUTING.md) for details on contributing to the Hexabin API.
 
 ## License
-This project is licensed under [MIT](https://opensource.org/licenses/MIT). Please read the [LICENSE]() for details.
+This project is licensed under [MIT](https://opensource.org/licenses/MIT). Please read the [LICENSE](https://github.com/angelina-tsuboi/Hexabin/blob/master/LICENSE) for details.
 
 ----------------------------
 ###### [Hexabin API](https://github.com/angelina-tsuboi/Hexabin) is maintained by [angelina-tsuboi](https://github.com/angelina-tsuboi).
