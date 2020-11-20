@@ -39,11 +39,11 @@
             <button class="accordion">Binary</button>
                 <div class="panel">
                     <ul class="panel-list">
-                        <li>
+                        <li class="ref" id="getBinary">
                         <span class="badge badge-success">GET</span>
                         Get a binary value
                         </li>
-                        <li>
+                        <li class="ref" id="convertBinary">
                         <span class="badge badge-success">GET</span>
                         Convert a binary value
                         </li>
@@ -53,11 +53,11 @@
                 <button class="accordion">Octal</button>
                 <div class="panel">
                     <ul class="panel-list">
-                        <li>
+                        <li class="ref" id="getOctal">
                         <span class="badge badge-success">GET</span>
                         Get a octal value
                         </li>
-                        <li>
+                        <li class="ref" id="convertOctal">
                         <span class="badge badge-success">GET</span>
                         Convert a octal value
                         </li>
@@ -67,11 +67,11 @@
                 <button class="accordion">Decimal</button>
                 <div class="panel">
                     <ul class="panel-list">
-                        <li>
+                        <li class="ref" id="getDecimal">
                         <span class="badge badge-success">GET</span>
                         Get a decimal value
                         </li>
-                        <li>
+                        <li class="ref" id="convertDecimal">
                         <span class="badge badge-success">GET</span>
                         Convert a decimal value
                         </li>
@@ -81,11 +81,11 @@
                 <button class="accordion">Hexadecimal</button>
                 <div class="panel">
                     <ul class="panel-list">
-                        <li>
+                        <li class="ref" id="getHex">
                         <span class="badge badge-success">GET</span>
                         Get a hexadecimal value
                         </li>
-                        <li>
+                        <li class="ref" id="convertHex">
                         <span class="badge badge-success">GET</span>
                         Convert a hexadecimal value
                         </li>
@@ -95,7 +95,7 @@
                 <button class="accordion">Random</button>
                 <div class="panel">
                     <ul class="panel-list">
-                        <li>
+                        <li class="ref" id="getRandom">
                         <span class="badge badge-success">GET</span>
                         Get a random value
                         </li>
@@ -106,7 +106,7 @@
         </nav>
 
         <!-- Main Content -->
-        <section class="main">
+        <section class="main" id="about">
             <div class="content">
                 <h3 class="subtitle">Information</h3>
                 <p>Hexabin is a RESTful API that converts and serves well formatted binary, hexadecimal, octal, and decimal values.
@@ -191,6 +191,50 @@
                 </form>
             </div>
             
+        </section>
+
+        <section class="main" id="info">
+          <h1 class="refTitle">Hello World</h1>
+          <!-- The text field -->
+
+          <div class="input-group mb-3 linkInput">
+            <div class="input-group-prepend">
+              <span class="input-group-text green" id="inputGroup-sizing-default">GET</span>
+            </div>
+            <input type="text" id="urlInput" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">Copy</button>
+            </div>
+          </div>
+
+          <h3 class="info-subtitle">
+            Path Parameters
+          </h3>
+
+          <h3 class="info-subtitle">
+            Query Parameters
+          </h3>
+
+          <h3 class="info-subtitle">Response</h3>
+
+          <div class="card error-card">
+            <div class="card-body">
+              200
+            </div>
+          </div>
+
+          <div class="card error-card">
+            <div class="card-body">
+              400
+            </div>
+          </div>
+
+          <div class="card error-card">
+            <div class="card-body">
+              404
+            </div>
+          </div>
+      
         </section>
     </div>
 

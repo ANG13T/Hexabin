@@ -8,6 +8,36 @@
   display: flex;
 }
 
+.ref{
+  cursor: pointer;
+}
+
+.linkInput{
+  width: 60%;
+  margin: auto;
+}
+
+.error-card{
+  width: 60%;
+  margin:auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info-subtitle{
+  margin-bottom: 2rem;
+  color: rgb(80, 79, 79);
+  font-weight: 400;
+}
+
+.green{
+  background-color: rgb(57, 160, 57);
+  color: white;
+}
+
+.refTitle{
+  margin-bottom: 3rem;
+}
 
 .title{
     color: white;

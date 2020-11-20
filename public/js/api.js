@@ -1,3 +1,49 @@
+let titles = {
+  "getBinary": "Get a binary value",
+  "convertBinary": "Convert a binary value", 
+  "getOctal": "Get a octal value",
+  "convertOctal": "Convert a octal value",
+  "getDecimal": "Get a decimal value",
+  "convertDecimal": "Convert a decimal value",
+  "getHex": "Get a hexadecimal value", 
+  "convertHex": "Convert a hexadecimal value",
+  "getRandom": "Get a random value"
+}
+
+let paths = {
+  "getBinary": "http://localhost:8081/api/binary",
+  "convertBinary": "http://localhost:8081/api/binary/:value/convert/:conversion", 
+  "getOctal": "http://localhost:8081/api/octal",
+  "convertOctal": "http://localhost:8081/api/octal/:value/convert/:conversion",
+  "getDecimal": "http://localhost:8081/api/decimal",
+  "convertDecimal": "http://localhost:8081/api/decimal/:value/convert/:conversion",
+  "getHex": "http://localhost:8081/api/hex", 
+  "convertHex": "http://localhost:8081/api/hex/:value/convert/:conversion",
+  "getRandom": "http://localhost:8081/api/random"
+}
+
+
+let about = $('#about');
+let info = $('#info');
+
+$('document').ready(function(){
+  about.show();
+  info.hide();
+})
+
+$('.ref').click(function(){
+  about.hide();
+  info.show();
+  showDetails(this.id);
+})
+
+
+function showDetails(id){
+  $('.refTitle').text(titles[id])
+  $('#urlInput').val(paths[id])
+  
+}
+
 var acc = document.getElementsByClassName("accordion");
 var i;
 
