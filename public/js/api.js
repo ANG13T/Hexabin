@@ -10,28 +10,34 @@ let titles = {
   "getRandom": "Get a random value"
 }
 
+let valueType = {type: "value", description: "Value of the format to be converted"};
+let conversionType = {type: "conversion", description: "Format to convert the value to"};
+
 let pathParams = {
   "getBinary": [],
-  "convertBinary": ["value", "conversion"], 
+  "convertBinary": [valueType, conversionType], 
   "getOctal": [],
-  "convertOctal": ["value", "conversion"],
+  "convertOctal": [valueType, conversionType],
   "getDecimal": [],
-  "convertDecimal": ["value", "conversion"],
+  "convertDecimal": [valueType, conversionType],
   "getHex": [], 
-  "convertHex": ["value", "conversion"],
+  "convertHex": [valueType, conversionType],
   "getRandom": []
 }
 
+let amountType = {type: "amount", description: "The amount of values returned"};
+let lengthType = {type: "length", description: "The length of the values returned"};
+
 let queryParams = {
-  "getBinary": ["amount", "length"],
+  "getBinary": [amountType, lengthType],
   "convertBinary": [], 
-  "getOctal": ["amount", "length"],
+  "getOctal": [amountType, lengthType],
   "convertOctal": [],
-  "getDecimal": ["amount", "length"],
+  "getDecimal": [amountType, lengthType],
   "convertDecimal": [],
-  "getHex": ["amount"], 
+  "getHex": [amountType], 
   "convertHex": [],
-  "getRandom": ["amount", "length"]
+  "getRandom": [amountType, lengthType]
 }
 
 let paths = {
@@ -75,8 +81,8 @@ function showDetails(id){
       $('#path-params').append(`
       <div class="card error-card">
             <div class="card-body">
-              <h3 class="status">${path}</h3>
-              <p class="status-description">Successful request to API. Returned proper, formatted data.</p>
+              <h3 class="status">${path.type}</h3>
+              <p class="status-description">${path.description}</p>
             </div>
       </div>
       `)
@@ -88,8 +94,8 @@ function showDetails(id){
       $('#query-params').append(`
       <div class="card error-card">
             <div class="card-body">
-              <h3 class="status">${query}</h3>
-              <p class="status-description">Successful request to API. Returned proper, formatted data.</p>
+              <h3 class="status">${query.type}</h3>
+              <p class="status-description">${query.description}</p>
             </div>
       </div>
     `)
