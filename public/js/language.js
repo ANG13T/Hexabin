@@ -1,7 +1,9 @@
 let language = window.location.pathname.split('/')[2];
 
-let firstURL = "http://localhost:8081/api/binary";
-let secondURL = "http://localhost:8081/api/binary/1010/convert/decimal";
+let base = window.location.origin;
+
+let firstURL = `${base}/api/binary`;
+let secondURL = `${base}/api/binary/1010/convert/decimal`;
 
 let titleChunks = 
 {

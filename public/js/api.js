@@ -1,3 +1,5 @@
+let base = window.location.origin + "/api";
+
 let titles = {
   "getBinary": "Get a binary value",
   "convertBinary": "Convert a binary value", 
@@ -19,15 +21,15 @@ let lengthType = {type: "length", description: "Optional. The length of the valu
 let types = [amountType, lengthType]
 
 let paths = {
-  "getBinary": "http://localhost:8081/api/binary",
-  "convertBinary": "http://localhost:8081/api/binary/:value/convert/:conversion", 
-  "getOctal": "http://localhost:8081/api/octal",
-  "convertOctal": "http://localhost:8081/api/octal/:value/convert/:conversion",
-  "getDecimal": "http://localhost:8081/api/decimal",
-  "convertDecimal": "http://localhost:8081/api/decimal/:value/convert/:conversion",
-  "getHex": "http://localhost:8081/api/hex", 
-  "convertHex": "http://localhost:8081/api/hex/:value/convert/:conversion",
-  "getRandom": "http://localhost:8081/api/random"
+  "getBinary": `${base}/binary`,
+  "convertBinary": `${base}/binary/:value/convert/:conversion`, 
+  "getOctal": `${base}/octal`,
+  "convertOctal": `${base}/octal/:value/convert/:conversion`,
+  "getDecimal": `${base}/decimal`,
+  "convertDecimal": `${base}/decimal/:value/convert/:conversion`,
+  "getHex": `${base}/hex`, 
+  "convertHex": `${base}/hex/:value/convert/:conversion`,
+  "getRandom": `${base}/random`
 }
 
 
@@ -166,7 +168,7 @@ function validData(){
 }
 
 function updateURL(){
-  urlValue = "http://localhost:8081/api/"
+  urlValue = base + "/"
   urlValue += `${(result.format).toLowerCase()}`;
   if(result.amount > 1){
     urlValue += `?amount=${result.amount}`;
@@ -188,7 +190,10 @@ sendRequestBtn.addEventListener('click', function(){
     return;
   }
   updateURL()
-  fetch(urlValue)
+  fetch(urlValue, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'}
+  })
   .then(res => res.json())
   .then((out) => {
     let textedJSON = JSON.stringify(out);
@@ -240,7 +245,7 @@ retrieveValue.addEventListener('click', function(){
 // Convert form
 
 function updateConvertURL(){
-  convertURLValue = "http://localhost:8081/api/"
+  convertURLValue = `${base}/`
   convertURLValue += `${(convertResult.from).toLowerCase()}/${(convertResult.fromValue)}/convert/${(convertResult.to).toLowerCase()}`;
   convertURL.innerText = "URL: " + convertURLValue
 }
@@ -358,7 +363,10 @@ convertSendRequestBtn.addEventListener('click', function(){
     return;
   }
   updateConvertURL();
-  fetch(convertURLValue)
+  fetch(convertURLValue, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'}
+  })
   .then(res => res.json())
   .then((out) => {
     let textedJSON = JSON.stringify(out);
