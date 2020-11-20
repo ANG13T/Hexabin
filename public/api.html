@@ -199,9 +199,9 @@
 
           <div class="input-group mb-3 linkInput">
             <div class="input-group-prepend">
-              <span class="input-group-text green" id="inputGroup-sizing-default">GET</span>
+              <span class="input-group-text greenBg" id="inputGroup-sizing-default">GET</span>
             </div>
-            <input type="text" id="urlInput" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input type="text" id="urlInput" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" type="button">Copy</button>
             </div>
@@ -219,19 +219,22 @@
 
           <div class="card error-card">
             <div class="card-body">
-              200
+              <h3 class="status">200</h3>
+              <p class="status-description">Successful request to API. Returned proper, formatted data.</p>
             </div>
           </div>
 
           <div class="card error-card">
             <div class="card-body">
-              400
+              <h3 class="status">400</h3>
+              <p class="status-description">Returned if there are any invalid request parameters.</p>
             </div>
           </div>
 
           <div class="card error-card">
             <div class="card-body">
-              404
+              <h3 class="status">404</h3>
+              <p class="status-description">Returned if template or route name is incorrect. Please validate that the URL for thie request is correct.</p>
             </div>
           </div>
       

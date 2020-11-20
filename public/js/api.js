@@ -11,6 +11,30 @@ let titles = {
 }
 
 let paths = {
+  "getBinary": [],
+  "convertBinary": ["value", "conversion"], 
+  "getOctal": [],
+  "convertOctal": ["value", "conversion"],
+  "getDecimal": [],
+  "convertDecimal": ["value", "conversion"],
+  "getHex": [], 
+  "convertHex": ["value", "conversion"],
+  "getRandom": []
+}
+
+let queryParams = {
+  "getBinary": ["amount", "length"],
+  "convertBinary": [], 
+  "getOctal": ["amount", "length"],
+  "convertOctal": [],
+  "getDecimal": ["amount", "length"],
+  "convertDecimal": [],
+  "getHex": ["amount"], 
+  "convertHex": [],
+  "getRandom": ["amount", "length"]
+}
+
+let pathParams = {
   "getBinary": "http://localhost:8081/api/binary",
   "convertBinary": "http://localhost:8081/api/binary/:value/convert/:conversion", 
   "getOctal": "http://localhost:8081/api/octal",
