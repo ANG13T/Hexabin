@@ -50,7 +50,7 @@ exports.getOctalNumbers = function(req, res) {
 
         if(!length){
             result.error = `Invalid argument for length in path: ${req.query.length}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
@@ -61,13 +61,13 @@ exports.getOctalNumbers = function(req, res) {
 
         if(!amount){
             result.error = `Invalid argument in path: ${req.query.amount}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
         if(amount > 20){
             result.error = "MAX of 20 items"
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
     }else{
@@ -81,7 +81,7 @@ exports.getOctalNumbers = function(req, res) {
     }
     result.result = octalList;
 
-    res.send(result)
+    res.status(200).send(result)
 };
 
 //Convert octal to another value
@@ -94,22 +94,22 @@ exports.convertOctalTo = function(req, res) {
         if(isValidOctal(octal)){
             if(isValidConversion(req.params.value)){
                 result.result = convertOctal(req.params.octal, req.params.value)
-                res.send(result);
+                res.status(200).send(result);
                 return;
             }else{
                 result.error = `Conversion value in path: ${req.params.value} is not valid`
-                res.send(result);
+                res.status(400).send(result);
                 return;
             }
         }else{
             result.error = `Octal value in path: ${req.params.octal} is not valid`
-            res.send(result);
+            res.status(400).send(result);
             return;
         }
 
     }else{
         result.error = "No value for octal in path"
-        res.send(result);
+        res.status(400).send(result);
         return;
     }
 };

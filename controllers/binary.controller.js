@@ -53,7 +53,7 @@ exports.getBinaryNumbers = function(req, res) {
 
         if(!length){
             result.error = `Invalid argument for length in path: ${req.query.length}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
@@ -63,13 +63,13 @@ exports.getBinaryNumbers = function(req, res) {
 
         if(!amount){
             result.error = `Invalid argument for amount in path: ${req.query.amount}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
         if(amount > 20){
             result.error = "MAX of 20 items"
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
     }else{
@@ -83,7 +83,7 @@ exports.getBinaryNumbers = function(req, res) {
     }
     result.result = binaryList;
 
-    res.send(result)
+    res.status(200).send(result)
 };
 
 
@@ -97,22 +97,22 @@ exports.convertBinaryTo = function(req, res) {
         if(isValidBinary(binary)){
             if(isValidConversion(req.params.value)){
                 result.result = convertBinary(req.params.binary, req.params.value)
-                res.send(result);
+                res.status(200).send(result);
                 return;
             }else{
                 result.error = `Conversion value in path: ${req.params.value} is not valid`
-                res.send(result);
+                res.status(400).send(result);
                 return;
             }
         }else{
             result.error = `Binary value in path: ${req.params.binary} is not valid`
-            res.send(result);
+            res.status(400).send(result);
             return;
         }
 
     }else{
         result.error = "No value for binary in path"
-        res.send(result);
+        res.status(400).send(result);
         return;
     }
 };

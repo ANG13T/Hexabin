@@ -51,7 +51,7 @@ exports.getRandomNumbers = function(req, res) {
 
         if(!length){
             result.error = `Invalid argument for length in path: ${req.query.length}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
@@ -62,7 +62,7 @@ exports.getRandomNumbers = function(req, res) {
 
         if(!isValidBase(base)){
             result.error = `Invalid argument for base in path: ${base}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
@@ -73,13 +73,13 @@ exports.getRandomNumbers = function(req, res) {
 
         if(!amount){
             result.error = `Invalid argument in path: ${req.query.amount}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
         if(amount > 20){
             result.error = "MAX of 20 items"
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
     }else{
@@ -94,5 +94,5 @@ exports.getRandomNumbers = function(req, res) {
     }
     result.result = randomList;
 
-    res.send(result)
+    res.status(200).send(result)
 };

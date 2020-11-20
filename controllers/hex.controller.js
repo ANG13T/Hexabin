@@ -45,13 +45,13 @@ exports.getHexNumbers = function(req, res) {
 
         if(!amount){
             result.error = `Invalid argument in path: ${req.query.amount}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
         if(amount > 20){
             result.error = "MAX of 20 items"
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
     }else{
@@ -64,7 +64,7 @@ exports.getHexNumbers = function(req, res) {
     }
     result.result = hexList;
 
-    res.send(result)
+    res.status(200).send(result)
 };
 
 //Convert HEX to another value
@@ -77,22 +77,22 @@ exports.convertHexTo = function(req, res) {
         if(isValidHex(hex)){
             if(isValidConversion(req.params.value)){
                 result.result = convertHex(hex, req.params.value)
-                res.send(result);
+                res.status(200).send(result);
                 return;
             }else{
                 result.error = `Conversion value in path: ${req.params.value} is not valid`
-                res.send(result);
+                res.status(400).send(result);
                 return;
             }
         }else{
             result.error = `Hex value in path: ${hex} is not valid`
-            res.send(result);
+            res.status(400).send(result);
             return;
         }
 
     }else{
         result.error = "No value for hex in path"
-        res.send(result);
+        res.status(400).send(result);
         return;
     }
 };

@@ -51,7 +51,7 @@ exports.getDecimalNumbers = function(req, res) {
 
         if(!length){
             result.error = `Invalid argument for length in path: ${req.query.length}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
@@ -62,13 +62,13 @@ exports.getDecimalNumbers = function(req, res) {
 
         if(!amount){
             result.error = `Invalid argument for amount in path: ${req.query.amount}`
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
         if(amount > 20){
             result.error = "MAX of 20 items"
-            res.send(result)
+            res.status(400).send(result)
             return;
         }
 
@@ -83,7 +83,7 @@ exports.getDecimalNumbers = function(req, res) {
     }
     result.result = decimalList;
 
-    res.send(result)
+    res.status(200).send(result)
 };
 
 //Convert decimal to another value
@@ -96,22 +96,22 @@ exports.convertDecimalTo = function(req, res) {
             if(isValidConversion(req.params.value)){
                 let decimal = parseInt(req.params.decimal)
                 result.result = convertDecimal(decimal, req.params.value)
-                res.send(result);
+                res.status(200).send(result);
                 return;
             }else{
-                result.error = `Conversion value in path: ${req.params.value} is not valid`
+                result.status(400).error = `Conversion value in path: ${req.params.value} is not valid`
                 res.send(result);
                 return;
             }
         }else{
             result.error = `Decimal value in path: ${req.params.decimal} is not valid`
-            res.send(result);
+            res.status(400).send(result);
             return;
         }
 
     }else{
         result.error = "No value for decimal in path"
-        res.send(result);
+        res.status(400).send(result);
         return;
     }
 };
