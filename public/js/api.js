@@ -10,7 +10,7 @@ let titles = {
   "getRandom": "Get a random value"
 }
 
-let paths = {
+let pathParams = {
   "getBinary": [],
   "convertBinary": ["value", "conversion"], 
   "getOctal": [],
@@ -34,7 +34,7 @@ let queryParams = {
   "getRandom": ["amount", "length"]
 }
 
-let pathParams = {
+let paths = {
   "getBinary": "http://localhost:8081/api/binary",
   "convertBinary": "http://localhost:8081/api/binary/:value/convert/:conversion", 
   "getOctal": "http://localhost:8081/api/octal",
@@ -65,7 +65,33 @@ $('.ref').click(function(){
 function showDetails(id){
   $('.refTitle').text(titles[id])
   $('#urlInput').val(paths[id])
-  
+  if(pathParams[id].length > 0){
+    $("#path-params").show();
+    $("#query-params").hide();
+    pathParams[id].forEach(path => {
+      $('#path-params').append(`
+      <div class="card error-card">
+            <div class="card-body">
+              <h3 class="status">${path}</h3>
+              <p class="status-description">Successful request to API. Returned proper, formatted data.</p>
+            </div>
+      </div>
+      `)
+    })
+  }else{
+    $("#path-params").hide();
+    $("#query-params").show();
+    queryParams[id].forEach(query => {
+      $('#query-params').append(`
+      <div class="card error-card">
+            <div class="card-body">
+              <h3 class="status">${query}</h3>
+              <p class="status-description">Successful request to API. Returned proper, formatted data.</p>
+            </div>
+      </div>
+    `)
+    }) 
+  }
 }
 
 var acc = document.getElementsByClassName("accordion");
