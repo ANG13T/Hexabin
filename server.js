@@ -5,6 +5,7 @@ var hexRoute = require("./routes/hex.route");
 var octalRoute = require("./routes/octal.route");
 var decimalRoute = require("./routes/decimal.route");
 var randomRoute = require("./routes/random.route");
+let port = process.env.PORT || 80;
 
 app.use('/api', [binaryRoute, hexRoute, octalRoute, decimalRoute, randomRoute]);
 app.use(express.static('public'))
@@ -37,8 +38,8 @@ app.get('*', function(req, res){
 });
 
 
-var server = app.listen(80, function () {
+var server = app.listen(port, function () {
    var host = server.address().address
-   var port = server.address().port
-   console.log("Example app listening at http://%s:%s", host, port)
+   var portValue = server.address().port
+   console.log("Example app listening at http://%s:%s", host, portValue)
 })
