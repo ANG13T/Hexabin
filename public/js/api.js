@@ -25,8 +25,8 @@ let pathParams = {
   "getRandom": []
 }
 
-let amountType = {type: "amount", description: "The amount of values returned"};
-let lengthType = {type: "length", description: "The length of the values returned"};
+let amountType = {type: "amount", description: "Optional. The amount of values returned. Example: ?amount=3"};
+let lengthType = {type: "length", description: "Optional. The length of the values returned. Example: ?length=5"};
 
 let queryParams = {
   "getBinary": [amountType, lengthType],
@@ -247,6 +247,7 @@ length.addEventListener('change', function(){
 })
 
 retrieveValue.addEventListener('click', function(){
+
   if (retrieveForm.style.display === "none") {
     retrieveForm.style.display = "block";
     convertForm.style.display = "none";
@@ -343,7 +344,7 @@ function validateConvertFields(){
 }
 
 convertValue.addEventListener('click', function(){
-  if (convertForm.style.display === "none") {
+  if (convertForm.style.display === "none" || convertForm.style.display === "") {
     convertForm.style.display = "block";
     retrieveForm.style.display = "none";
     convertValue.classList.add("active")

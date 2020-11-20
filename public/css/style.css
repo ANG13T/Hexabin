@@ -23,8 +23,8 @@ header {
 
   .started-button{
     margin-top: 2.4rem;
-    color: #2d179b;
-    margin-left: 39%;
+    color: #23127c;
+    margin-left: 38%;
     font-size: 1.5rem;
   }
 
@@ -87,6 +87,7 @@ header {
     box-shadow: 0 6px 10px rgba(184, 180, 183, 0.651), 0 0 6px rgba(184, 180, 183, 0.651);
       transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
   cursor: pointer;
+  padding: 1.4rem;
   margin-top: 4rem;
   margin-bottom: 6rem;
 }
@@ -103,8 +104,9 @@ header {
 
 .skill-title{
     margin-bottom: 1.5rem;
+    margin-top: .5rem;
     text-align: center;
-    color: #2d179b;
+    color: #2d1a8f;
     font-size: 2.5rem;
 }
 
