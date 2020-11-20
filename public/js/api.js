@@ -63,6 +63,9 @@ $('.ref').click(function(){
 
 
 function showDetails(id){
+  $('#query-params').children("div").remove()
+  $('#path-params').children("div").remove()
+
   $('.refTitle').text(titles[id])
   $('#urlInput').val(paths[id])
   if(pathParams[id].length > 0){
