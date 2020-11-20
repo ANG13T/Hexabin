@@ -58,16 +58,36 @@ let firstCodeChunks =
   .then(data => console.log(data));
   `,
   "swift": `
-  <i class="fab fa-app-store-ios logo blue"></i>
-  <span>Getting Started with Swift</span>
+  let session = URLSession.shared
+  let url = URL(string: "${firstURL}")!
+  let task = session.dataTask(with: url, completionHandler: { data, response, error in     
+            print(error)             
+            print(response)                                              
+    })
+  task.resume()
   `,
   "java": `
-  <i class="fab fa-java logo tan"></i>
-  <span>Getting Started with Java</span>
+  HttpClient client = HttpClient.newHttpClient();
+  HttpRequest request = HttpRequest.newBuilder()
+          .uri(URI.create("${firstURL}"))
+          .build();
+
+  HttpResponse<String> response = client.send(request,
+          HttpResponse.BodyHandlers.ofString());
+
+  System.out.println(response.body());
   `,
   "php": `
-  <i class="fab fa-php logo blue"></i>
-  <span>Getting Started with PHP</span>
+  $curl = curl_init();
+  curl_setopt_array($curl, array(
+      CURLOPT_RETURNTRANSFER => 1,
+      CURLOPT_URL => '${firstURL}'
+  ));
+  
+  $resp = curl_exec($curl);
+  echo $resp;
+  
+  curl_close($curl);
   `,
   "python": `
   import requests
@@ -76,16 +96,40 @@ let firstCodeChunks =
   print(response.json())
   `,
   "curl": `
-  <i class="fas fa-terminal logo gray"></i>
-  <span>Getting Started with Curl</span>
+  curl ${firstURL}
   `,
   "golang": `
-  <i class="fab fa-google logo tan"></i>
-  <span>Getting Started with Golang</span>
+  package main
+
+  import (
+      "fmt"
+      "io/ioutil"
+      "log"
+      "net/http"
+      "os"
+  )
+
+  func main() {
+      response, err := http.Get("${firstURL}")
+
+      if err != nil {
+          fmt.Print(err.Error())
+          os.Exit(1)
+      }
+
+      responseData, err := ioutil.ReadAll(response.Body)
+      if err != nil {
+          log.Fatal(err)
+      }
+      fmt.Println(string(responseData))
+
+  }
   `,
   "perl": `
-  <i class="fab fa-pushed logo blue"></i>
-  <span>Getting Started with Perl</span>
+  use REST::Client;
+  my $client = REST::Client->new();
+  $client->GET("${firstURL}");
+  print $client->responseContent();
   `
 }
 
@@ -104,16 +148,36 @@ let secondCodeChunks =
   .then(data => console.log(data));
   `,
   "swift": `
-  <i class="fab fa-app-store-ios logo blue"></i>
-  <span>Getting Started with Swift</span>
+  let session = URLSession.shared
+  let url = URL(string: "${secondURL}")!
+  let task = session.dataTask(with: url, completionHandler: { data, response, error in      
+            print(error)             
+            print(response)                                              
+    })
+  task.resume()
   `,
   "java": `
-  <i class="fab fa-java logo tan"></i>
-  <span>Getting Started with Java</span>
+  HttpClient client = HttpClient.newHttpClient();
+  HttpRequest request = HttpRequest.newBuilder()
+          .uri(URI.create("${firstURL}"))
+          .build();
+
+  HttpResponse<String> response = client.send(request,
+          HttpResponse.BodyHandlers.ofString());
+
+  System.out.println(response.body());
   `,
   "php": `
-  <i class="fab fa-php logo blue"></i>
-  <span>Getting Started with PHP</span>
+  $curl = curl_init();
+  curl_setopt_array($curl, array(
+      CURLOPT_RETURNTRANSFER => 1,
+      CURLOPT_URL => '${secondURL}'
+  ));
+  
+  $resp = curl_exec($curl);
+  echo $resp;
+  
+  curl_close($curl);
   `,
   "python": `
   import requests
@@ -122,16 +186,40 @@ let secondCodeChunks =
   print(response.json())
   `,
   "curl": `
-  <i class="fas fa-terminal logo gray"></i>
-  <span>Getting Started with Curl</span>
+  curl ${secondURL}
   `,
   "golang": `
-  <i class="fab fa-google logo tan"></i>
-  <span>Getting Started with Golang</span>
+  package main
+
+  import (
+      "fmt"
+      "io/ioutil"
+      "log"
+      "net/http"
+      "os"
+  )
+
+  func main() {
+      response, err := http.Get("${secondURL}")
+
+      if err != nil {
+          fmt.Print(err.Error())
+          os.Exit(1)
+      }
+
+      responseData, err := ioutil.ReadAll(response.Body)
+      if err != nil {
+          log.Fatal(err)
+      }
+      fmt.Println(string(responseData))
+
+  }
   `,
   "perl": `
-  <i class="fab fa-pushed logo blue"></i>
-  <span>Getting Started with Perl</span>
+  use REST::Client;
+  my $client = REST::Client->new();
+  $client->GET("${secondURL}");
+  print $client->responseContent();
   `
 }
 
