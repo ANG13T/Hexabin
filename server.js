@@ -26,10 +26,15 @@ app.get('/start/:language', (req, res) => {
    if(languages.includes(req.params.language)){
       res.sendFile('public/language.html', { root: __dirname })
    }else{
-      res.sendFile('public/error.html', { root: __dirname })
+      res.status(404).sendFile('public/error.html', { root: __dirname })
    }
    
 })
+
+
+app.get('*', function(req, res){
+   res.status(404).sendFile('public/error.html', { root: __dirname })
+});
 
 
 var server = app.listen(8081, function () {
