@@ -159,7 +159,7 @@ let secondCodeChunks =
   "java": `
   HttpClient client = HttpClient.newHttpClient();
   HttpRequest request = HttpRequest.newBuilder()
-          .uri(URI.create("${firstURL}"))
+          .uri(URI.create("${secondURL}"))
           .build();
 
   HttpResponse<String> response = client.send(request,
