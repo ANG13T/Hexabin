@@ -12,33 +12,11 @@ let titles = {
 
 let valueType = {type: "value", description: "Value of the format to be converted"};
 let conversionType = {type: "conversion", description: "Format to convert the value to"};
-
-let pathParams = {
-  "getBinary": [],
-  "convertBinary": [valueType, conversionType], 
-  "getOctal": [],
-  "convertOctal": [valueType, conversionType],
-  "getDecimal": [],
-  "convertDecimal": [valueType, conversionType],
-  "getHex": [], 
-  "convertHex": [valueType, conversionType],
-  "getRandom": []
-}
+let pathTypes = [valueType, conversionType]
 
 let amountType = {type: "amount", description: "Optional. The amount of values returned. Example: ?amount=3"};
 let lengthType = {type: "length", description: "Optional. The length of the values returned. Example: ?length=5"};
-
-let queryParams = {
-  "getBinary": [amountType, lengthType],
-  "convertBinary": [], 
-  "getOctal": [amountType, lengthType],
-  "convertOctal": [],
-  "getDecimal": [amountType, lengthType],
-  "convertDecimal": [],
-  "getHex": [amountType], 
-  "convertHex": [],
-  "getRandom": [amountType, lengthType]
-}
+let types = [amountType, lengthType]
 
 let paths = {
   "getBinary": "http://localhost:8081/api/binary",
@@ -83,10 +61,10 @@ function showDetails(id){
 
   $('.refTitle').text(titles[id])
   $('#urlInput').val(paths[id])
-  if(pathParams[id].length > 0){
+  if(Object.keys(paths).indexOf(id) % 2 == 1){
     $("#path-params").show();
     $("#query-params").hide();
-    pathParams[id].forEach(path => {
+    pathTypes.forEach(path => {
       $('#path-params').append(`
       <div class="card error-card">
             <div class="card-body">
@@ -99,7 +77,7 @@ function showDetails(id){
   }else{
     $("#path-params").hide();
     $("#query-params").show();
-    queryParams[id].forEach(query => {
+    types.forEach(query => {
       $('#query-params').append(`
       <div class="card error-card">
             <div class="card-body">
