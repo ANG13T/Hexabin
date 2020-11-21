@@ -1,5 +1,5 @@
 # Hexabin
-<img src="https://github.com/angelina-tsuboi/Hexabin/blob/master/public/images/HexbinLogo.png" alt="Logo" height="75" width="60">
+<img src="https://github.com/angelina-tsuboi/Hexabin/blob/master/public/images/HexbinLogo.png" alt="Logo" height="113" width="90">
 
 A Node.js/Express.js REST API to GET and CONVERT binary, hexadecimal, octal, and decimal formats.
 
@@ -7,7 +7,7 @@ A Node.js/Express.js REST API to GET and CONVERT binary, hexadecimal, octal, and
 
 ## Website
 
-Visit ![http://www.hexabin-api.com](http://www.hexabin-api.com)
+Visit [http://www.hexabin-api.com](http://www.hexabin-api.com)
 
 ## API Documentation
 
