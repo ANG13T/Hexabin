@@ -6,10 +6,12 @@ A Node.js/Express.js REST API to GET and CONVERT binary, hexadecimal, octal, and
 ![](https://img.shields.io/badge/contributions-welcome-34cdfa)
 
 ## Website
-Visit ___
+
+Visit ![http://www.hexabin-api.com](http://www.hexabin-api.com)
 
 ## API Documentation
-Base URL for all endpoints https://url/api
+
+Base URL for all endpoints http://www.hexabin-api.com/api
 
 
 ### Endpoints
