@@ -7,11 +7,11 @@ A Node.js/Express.js REST API to GET and CONVERT binary, hexadecimal, octal, and
 
 ## Website
 
-Visit [http://www.hexabin-api.com](http://www.hexabin-api.com)
+Visit [https://hexabin.herokuapp.com](https://hexabin.herokuapp.com)
 
 ## API Documentation
 
-Base URL for all endpoints http://www.hexabin-api.com/api
+Base URL for all endpoints https://hexabin.herokuapp.com/api
 
 
 ### Endpoints
